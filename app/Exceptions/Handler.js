@@ -50,7 +50,7 @@ class ExceptionHandler extends BaseExceptionHandler {
    * @return {void}
    */
   async report () {
-    Sentry.init({ dsn: 'https://36ad08f68d9c4eb9a1e5e695c8cb0ac4@o403041.ingest.sentry.io/5289421' })
+    Sentry.init({ dsn: Config.get('SENTRY_DSN') })
     Sentry.captureException(new Error('Good bye'))
   }
 }
