@@ -7,6 +7,18 @@ class UserAdressSchema extends Schema {
   up () {
     this.create('user_adresses', (table) => {
       table.increments()
+      table
+        .integer('user_id')
+        .unsigned()
+        .references('id')
+        .inTable('users')
+        .onUpdate('CASCADE')
+        .onDelete('SET NULL')
+      table.string('street').notNullable()
+      table.integer('number').notNullable()
+      table.string('district')
+      table.string('city').notNullable()
+      table.string('state').notNullable()
       table.timestamps()
     })
   }
